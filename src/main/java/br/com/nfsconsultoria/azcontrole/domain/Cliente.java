@@ -5,64 +5,74 @@ import javax.persistence.Entity;
 
 /**
  * @author luissantos
- *
  */
 @Entity
 public class Cliente extends GenericDomain {
 
-	@Column(nullable = false, length = 45)
-	private String nome;
+    @Column(nullable = false, length = 45)
+    private String nome;
 
-	@Column(unique = true, length = 15)
-	private String cel;
+    @Column(unique = true, length = 15)
+    private String cel;
 
-	@Column(length = 120)
-	private String rua;
+    @Column(length = 45)
+    private String email;
 
-	@Column(length = 80)
-	private String bairro;
+    @Column(length = 120)
+    private String rua;
 
-	@Column(length = 80)
-	private String cidade;
+    @Column(length = 80)
+    private String bairro;
 
-	public String getNome() {
-		return this.nome;
-	}
+    @Column(length = 80)
+    private String cidade;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return this.nome;
+    }
 
-	public String getCel() {
-		return this.cel;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setCel(String cel) {
-		this.cel = cel;
-	}
+    public String getCel() {
+        return this.cel;
+    }
 
-	public String getRua() {
-		return this.rua;
-	}
+    public void setCel(String cel) {
+        this.cel = cel;
+    }
 
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getBairro() {
-		return this.bairro;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+    public String getRua() {
+        return this.rua;
+    }
 
-	public String getCidade() {
-		return this.cidade;
-	}
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    public String getBairro() {
+        return this.bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return this.cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
 }

@@ -1,15 +1,13 @@
-package br.com.nfsconsultoria.bean;
+package br.com.nfsconsultoria.azcontrole.bean;
 
-import java.util.List;
+import br.com.nfsconsultoria.azcontrole.dao.SapatilhaDAO;
+import br.com.nfsconsultoria.azcontrole.domain.Sapatilha;
+import org.omnifaces.util.Messages;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
-
-import org.omnifaces.util.Messages;
-
-import br.com.nfsconsultoria.azcontrole.dao.SapatilhaDAO;
-import br.com.nfsconsultoria.azcontrole.domain.Sapatilha;
+import java.util.List;
 
 /**
  * @author luissantos

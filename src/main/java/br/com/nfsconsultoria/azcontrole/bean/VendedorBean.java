@@ -1,15 +1,13 @@
-package br.com.nfsconsultoria.bean;
+package br.com.nfsconsultoria.azcontrole.bean;
 
-import java.util.List;
+import br.com.nfsconsultoria.azcontrole.dao.VendedorDAO;
+import br.com.nfsconsultoria.azcontrole.domain.Vendedor;
+import org.omnifaces.util.Messages;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
-
-import org.omnifaces.util.Messages;
-
-import br.com.nfsconsultoria.azcontrole.dao.VendedorDAO;
-import br.com.nfsconsultoria.azcontrole.domain.Vendedor;
+import java.util.List;
 
 /**
  * @author luissantos
