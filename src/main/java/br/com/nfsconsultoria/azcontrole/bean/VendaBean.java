@@ -126,6 +126,7 @@ public class VendaBean {
             VendaDAO vendaDAO = new VendaDAO();
             venda = (Venda) evento.getComponent().getAttributes().get("vendaSelecionada");
             vendaDAO.excluir(venda);
+            listar();
             Messages.addGlobalInfo("Venda excluida com sucesso");
         } catch (RuntimeException erro) {
             Messages.addGlobalError("Ocorreu o erro " + erro.getMessage()

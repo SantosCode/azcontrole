@@ -109,6 +109,8 @@ public class CompraBean {
             CompraDAO compraDAO = new CompraDAO();
             compra = (Compra) evento.getComponent().getAttributes().get("compraSelecionada");
             compraDAO.excluir(compra);
+            listar();
+            Messages.addGlobalInfo("Compra excluida com sucesso");
         } catch (RuntimeException erro) {
             Messages.addGlobalError("Ocorreu o erro " + erro.getMessage()
                     + " ao tentar excluir compra");
