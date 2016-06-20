@@ -1,68 +1,81 @@
 package br.com.nfsconsultoria.azcontrole.domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  * @author luissantos
  *
  */
 @Entity
-public class Vendedor extends GenericDomain {
+public class Vendedor extends GenericDomain implements Serializable {
 
-	@Column(nullable = false, length = 45)
-	private String nome;
+    @Column(nullable = false, length = 45)
+    private String nome;
 
-	@Column(nullable = false, length = 45)
-	private String email;
+    @Column(nullable = false, length = 45)
+    private String email;
 
-	@Column(length = 15)
-	private String cel;
+    @Column(length = 15)
+    private String cel;
 
-	@Column(nullable = false, length = 10, unique = true)
-	private String login;
+    @Column(nullable = false, length = 10, unique = true)
+    private String login;
 
-	@Column(nullable = false, length = 10)
-	private String senha;
+    @Column(nullable = false, length = 10)
+    private String senha;
 
-	public String getNome() {
-		return this.nome;
-	}
+    @OneToOne(mappedBy = "vendedor")
+    private Sapatilha sapatilha;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return this.nome;
+    }
 
-	public String getEmail() {
-		return this.email;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return this.email;
+    }
 
-	public String getCel() {
-		return this.cel;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setCel(String cel) {
-		this.cel = cel;
-	}
+    public String getCel() {
+        return this.cel;
+    }
 
-	public String getLogin() {
-		return this.login;
-	}
+    public void setCel(String cel) {
+        this.cel = cel;
+    }
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
+    public String getLogin() {
+        return this.login;
+    }
 
-	public String getSenha() {
-		return this.senha;
-	}
+    public void setLogin(String login) {
+        this.login = login;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public String getSenha() {
+        return this.senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Sapatilha getSapatilha() {
+        return sapatilha;
+    }
+
+    public void setSapatilha(Sapatilha sapatilha) {
+        this.sapatilha = sapatilha;
+    }
 
 }

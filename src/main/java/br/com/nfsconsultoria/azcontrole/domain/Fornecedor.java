@@ -1,5 +1,6 @@
 package br.com.nfsconsultoria.azcontrole.domain;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Fornecedor extends GenericDomain {
+public class Fornecedor extends GenericDomain implements Serializable {
 
     @Column(nullable = false, length = 45)
     private String nome;

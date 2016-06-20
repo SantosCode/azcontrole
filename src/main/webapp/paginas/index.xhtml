@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/modelo.xhtml">
+    <ui:define name="conteudo">
+        <h3> Seja bem vindo ao sistema de controle de vendas AZControle.<br/>
+            Acesse as funcionalidades através do menu ao lado.</h3>
+        <h:form>
+            <p:panel header="DashBoard">
+                <p:panel header="Minhas Vendas" toggleable="true">
+                    <p:dataTable id="tabelaAgenda" emptyMessage="Nenhum venda hoje."
+                                 paginator="true" value="#{indexBean.agendas}" var="agenda"
+                                 rows="10" paginatorPosition="top" rendered="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink}">
+
+                        <p:column headerText="Data" sortBy="#{agenda.hora}">
+                            <p:calendar value="#{agenda.hora}" pattern="dd/MM/yyyy" timeOnly="true"
+                                        readonly="true" showOn="false" size="6"/>
+                        </p:column>
+
+                        <p:column headerText="Cliente">
+                            <h:outputText value="#{agenda.dentista.nome}"/>
+                        </p:column>
+
+                        <p:column headerText="Bairro">
+                            <h:outputText value="#{agenda.dentista.bairro}"/>
+                        </p:column>
+
+                        <p:column headerText="Cidade">
+                            <h:outputText value="#{agenda.dentista.cidade}"/>
+                        </p:column>
+
+                        <p:column headerText="Vendedor">
+                            <h:outputText value="#{agenda.representante.nome}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+
+                <p:panel header="Aniverssariantes do Mês" toggleable="true">
+                    <p:dataTable id="tabelaMes" emptyMessage="Nenhum aniverssário para este mês."
+                                 paginator="true" value="#{indexBean.datas}" var="data"
+                                 rows="10" paginatorPosition="top" rendered="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink}">
+
+
+                        <p:column headerText="Dia" sortBy="#{data.dia}" sortable="true">
+                            <h:outputText value="#{data.dia}"/>
+                        </p:column>
+
+                        <p:column headerText="Mês">
+                            <h:outputText value="#{data.mes}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Aniverssáriante">
+                            <h:outputText value="#{data.nome}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+

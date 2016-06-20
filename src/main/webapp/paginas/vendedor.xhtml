@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/modelo.xhtml">
+
+    <ui:define name="conteudo">
+        <h:form id="formListagem">
+            <p:panel header="Vendedores">
+                <p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado."
+                             paginator="true" value="#{vendedorBean.vendedores}"
+                             var="vendedor" rows="10" paginatorPosition="top" rendered="true"
+                             lazy="true"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink}">
+                    <f:facet name="header">
+                        <p:commandButton value="Novo Cadastro"
+                                         actionListener="#{vendedorBean.novo}"
+                                         oncomplete="PF('dialogo').show();"
+                                         update=":mensagem :formCadastro:painel">
+                            <f:actionListener
+                                type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+                        </p:commandButton>
+
+                        <h:commandLink>
+                            <p:graphicImage name="/images/excel.png" width="24" />
+                            <p:dataExporter type="xls" target="tabela" fileName="datas"
+                                            postProcessor="#{clinicaBean.postProcessXLS}" />
+                        </h:commandLink>
+
+                        <h:commandLink>
+                            <p:graphicImage name="/images/pdf.png" width="24" />
+                            <p:dataExporter type="pdf" target="tabela" fileName="clinicas"
+                                            preProcessor="#{clinicaBean.preProcessPDF}" />
+                        </h:commandLink>
+                    </f:facet>
+
+                    <p:column headerText="Vendedor"
+                              filterBy="#{vendedor.nome}"
+                              filterMatchMode="contains" sortBy="#{vendedor.nome}">
+                        <h:outputText value="#{vendedor.nome}" />
+                    </p:column>
+
+                    <p:column headerText="Celular"
+                              filterBy="#{vendedor.cel}"
+                              filterMatchMode="contains" sortBy="#{vendedor.cel}">
+                        <h:outputText value="#{vendedor.cel}" />
+                    </p:column>
+
+                    <p:column headerText="Login"
+                              filterBy="#{vendedor.login}"
+                              filterMatchMode="contains" sortBy="#{vendedor.login}">
+                        <h:outputText value="#{vendedor.login}" />
+                    </p:column>
+
+                    <p:column headerText="Opções" exportable="false">
+                        <p:commandButton icon="ui-icon-trash"
+                                         actionListener="#{vendedorBean.excluir}"
+                                         update=":mensagem :formListagem:tabela">
+                            <p:confirm header="Confirmação"
+                                       message="Deseja excluir o vendedor?" icon="ui-icon-alert" />
+                            <f:attribute name="vendedorSelecionado" value="#{vendedor}" />
+                        </p:commandButton>
+
+                        <p:commandButton icon="ui-icon-pencil"
+                                         actionListener="#{vendedorBean.editar}"
+                                         update=":mensagem :formCadastro:painel"
+                                         oncomplete="PF('dialogo').show();">
+                            <f:attribute name="vendedorSelecionado" value="#{vendedor}" />
+                            <f:actionListener
+                                type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+                        </p:commandButton>
+                        <p:confirmDialog global="true">
+                            <p:commandButton value="Sim" type="button"
+                                             styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button"
+                                             styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
+                        <p:commandButton icon="ui-icon-info"
+                                         actionListener="#{vendedorBean.editar}"
+                                         update=":mensagem :formVisu:painel"
+                                         oncomplete="PF('dlgVisu').show();">
+                            <f:attribute name="vendedorSelecionado" value="#{vendedor}" />
+                            <f:actionListener
+                                type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+
+        <p:dialog header="Vendedor - Cadastro" widgetVar="dialogo"
+                  draggable="false" resizable="false" modal="true" closable="false"
+                  appendTo="@(body)" showEffect="clip" responsive="true" dynamic="true"
+                  fitViewport="true" positionType="absolute">
+            <h:form id="formCadastro">
+
+                <h:panelGrid id="painel" columns="2">
+                    <p:outputLabel for="nome" value="Nome:" />
+                    <p:inputText id="nome"
+                                 value="#{vendedorBean.vendedor.nome}"
+                                 required="true" requiredMessage="O campo nome é obrigatório" />
+                    
+                    <p:outputLabel for="cel" value="Celular:" />
+                    <p:inputText id="cel"
+                                 value="#{vendedorBean.vendedor.cel}"/>
+                    
+                    <p:outputLabel for="mail" value="E-Mail:" />
+                    <p:inputText id="mail"
+                                 value="#{vendedorBean.vendedor.email}"
+                                 required="true" requiredMessage="O campo e-mail é obrigatório" />
+                    
+                    <p:outputLabel for="login" value="Login:" />
+                    <p:inputText id="login"
+                                 value="#{vendedorBean.vendedor.login}"
+                                 required="true" requiredMessage="O campo login é obrigatório" />
+                    
+                    <p:outputLabel for="senha" value="Senha:" />
+                    <p:password id="senha" feedback="true" promptLabel="Digite uma senha forte" 
+                                weakLabel="Senha Fraca" goodLabel="Senha Média" strongLabel="Senha Forte" 
+                                value="#{vendedorBean.vendedor.senha}"
+                                 required="true" requiredMessage="O campo senha é obrigatório" />
+                    
+                    <p:commandButton value="Salvar"
+                                     actionListener="#{vendedorBean.salvar}"
+                                     update=":mensagem :formCadastro:painel  :formListagem:tabela" />
+
+                    <p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog header="Datas Especiais" widgetVar="dlgVisu"
+                  draggable="false" resizable="false" modal="true" closable="false"
+                  appendTo="@(body)" showEffect="clip" responsive="true" dynamic="true"
+                  fitViewport="true" positionType="absolute">
+            <h:form id="formVisu">
+                <h:panelGrid id="painel" columns="2">
+                    <p:outputLabel for="nome" value="Clinica:"
+                                   style="font-weight: bold" />
+                    <p:outputLabel id="nome"
+                                   value="#{clinicaBean.clinica.nome}" />
+
+                    <p:outputLabel value="Dentistas:" style="font-weight: bold"/>
+                    <p:outputPanel id="lista" style="width: 400px">
+                        <p:dataList value="#{clinicaBean.clinica.dentista}"
+                                    var="dentistasLista" emptyMessage="Nenhum dentista selecionado">
+                            Dr(a) #{dentistasLista.nome} CRO #{dentistasLista.cro} 
+                        </p:dataList>
+                    </p:outputPanel>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Fechar" oncomplete="PF('dlgVisu').hide();" />
+                    <p:commandButton value="Imprimir" type="button"
+                                     icon="ui-icon-print">
+                        <p:printer target="formVisu" />
+                    </p:commandButton>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:define>
+
+</ui:composition>
