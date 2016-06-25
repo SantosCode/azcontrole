@@ -3,7 +3,6 @@ package br.com.nfsconsultoria.azcontrole.domain;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
 /**
  * @author luissantos
@@ -26,9 +25,6 @@ public class Vendedor extends GenericDomain implements Serializable {
 
     @Column(nullable = false, length = 10)
     private String senha;
-
-    @OneToOne(mappedBy = "vendedor")
-    private Sapatilha sapatilha;
 
     public String getNome() {
         return this.nome;
@@ -69,13 +65,4 @@ public class Vendedor extends GenericDomain implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public Sapatilha getSapatilha() {
-        return sapatilha;
-    }
-
-    public void setSapatilha(Sapatilha sapatilha) {
-        this.sapatilha = sapatilha;
-    }
-
 }

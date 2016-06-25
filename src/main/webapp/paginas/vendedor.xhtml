@@ -103,27 +103,27 @@
                     <p:inputText id="nome"
                                  value="#{vendedorBean.vendedor.nome}"
                                  required="true" requiredMessage="O campo nome é obrigatório" />
-                    
+
                     <p:outputLabel for="cel" value="Celular:" />
                     <p:inputText id="cel"
                                  value="#{vendedorBean.vendedor.cel}"/>
-                    
+
                     <p:outputLabel for="mail" value="E-Mail:" />
                     <p:inputText id="mail"
                                  value="#{vendedorBean.vendedor.email}"
                                  required="true" requiredMessage="O campo e-mail é obrigatório" />
-                    
+
                     <p:outputLabel for="login" value="Login:" />
                     <p:inputText id="login"
                                  value="#{vendedorBean.vendedor.login}"
                                  required="true" requiredMessage="O campo login é obrigatório" />
-                    
+
                     <p:outputLabel for="senha" value="Senha:" />
                     <p:password id="senha" feedback="true" promptLabel="Digite uma senha forte" 
                                 weakLabel="Senha Fraca" goodLabel="Senha Média" strongLabel="Senha Forte" 
                                 value="#{vendedorBean.vendedor.senha}"
-                                 required="true" requiredMessage="O campo senha é obrigatório" />
-                    
+                                required="true" requiredMessage="O campo senha é obrigatório" />
+
                     <p:commandButton value="Salvar"
                                      actionListener="#{vendedorBean.salvar}"
                                      update=":mensagem :formCadastro:painel  :formListagem:tabela" />
@@ -133,7 +133,7 @@
             </h:form>
         </p:dialog>
 
-        <p:dialog header="Datas Especiais" widgetVar="dlgVisu"
+        <p:dialog header="Vendedores" widgetVar="dlgVisu"
                   draggable="false" resizable="false" modal="true" closable="false"
                   appendTo="@(body)" showEffect="clip" responsive="true" dynamic="true"
                   fitViewport="true" positionType="absolute">

@@ -1,8 +1,13 @@
 package br.com.nfsconsultoria.azcontrole.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * @author luissantos
@@ -33,9 +38,16 @@ public class Cliente extends GenericDomain implements Serializable {
     
     @Column(length = 15)
     private String mes_niver;
+    
+    @OneToMany(mappedBy = "cliente", targetEntity = Produto.class, 
+            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Produto> produtos;
+    
+    @OneToOne
+    private Vendedor vendedor;
 
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
@@ -43,7 +55,7 @@ public class Cliente extends GenericDomain implements Serializable {
     }
 
     public String getCel() {
-        return this.cel;
+        return cel;
     }
 
     public void setCel(String cel) {
@@ -59,7 +71,7 @@ public class Cliente extends GenericDomain implements Serializable {
     }
 
     public String getRua() {
-        return this.rua;
+        return rua;
     }
 
     public void setRua(String rua) {
@@ -67,7 +79,7 @@ public class Cliente extends GenericDomain implements Serializable {
     }
 
     public String getBairro() {
-        return this.bairro;
+        return bairro;
     }
 
     public void setBairro(String bairro) {
@@ -75,7 +87,7 @@ public class Cliente extends GenericDomain implements Serializable {
     }
 
     public String getCidade() {
-        return this.cidade;
+        return cidade;
     }
 
     public void setCidade(String cidade) {
@@ -96,6 +108,22 @@ public class Cliente extends GenericDomain implements Serializable {
 
     public void setMes_niver(String mes_niver) {
         this.mes_niver = mes_niver;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 
 }

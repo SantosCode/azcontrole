@@ -1,12 +1,8 @@
 package br.com.nfsconsultoria.azcontrole.domain;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 
 /**
  * @author luissantos
@@ -33,12 +29,8 @@ public class Fornecedor extends GenericDomain implements Serializable {
     @Column(length = 9)
     private String cep;
     
-    @OneToMany(mappedBy = "fornecedor", targetEntity = Sapatilha.class, 
-            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Sapatilha> sapatilhas;
-
     public String getNome() {
-        return this.nome;
+        return nome;
     }
 
     public void setNome(String nome) {
@@ -46,7 +38,7 @@ public class Fornecedor extends GenericDomain implements Serializable {
     }
 
     public String getTel() {
-        return this.tel;
+        return tel;
     }
 
     public void setTel(String tel) {
@@ -54,7 +46,7 @@ public class Fornecedor extends GenericDomain implements Serializable {
     }
 
     public String getRua() {
-        return this.rua;
+        return rua;
     }
 
     public void setRua(String rua) {
@@ -62,7 +54,7 @@ public class Fornecedor extends GenericDomain implements Serializable {
     }
 
     public String getBairro() {
-        return this.bairro;
+        return bairro;
     }
 
     public void setBairro(String bairro) {
@@ -70,7 +62,7 @@ public class Fornecedor extends GenericDomain implements Serializable {
     }
 
     public String getCidade() {
-        return this.cidade;
+        return cidade;
     }
 
     public void setCidade(String cidade) {
@@ -78,18 +70,11 @@ public class Fornecedor extends GenericDomain implements Serializable {
     }
 
     public String getCep() {
-        return this.cep;
+        return cep;
     }
 
     public void setCep(String cep) {
         this.cep = cep;
     }
 
-    public List<Sapatilha> getSapatilhas() {
-        return sapatilhas;
-    }
-
-    public void setSapatilhas(List<Sapatilha> sapatilhas) {
-        this.sapatilhas = sapatilhas;
-    }
 }

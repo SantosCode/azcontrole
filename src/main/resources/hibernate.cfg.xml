@@ -3,7 +3,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.200.6:3306/azcontrole?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://192.168.200.6:3306/azcontrole</property>
     <property name="hibernate.connection.username">aptech</property>
     <property name="hibernate.connection.password">Aptech2016</property>
     <!-- Pool de Conexões -->
@@ -24,7 +24,8 @@
     <mapping class="br.com.nfsconsultoria.azcontrole.domain.Cliente"/>
     <mapping class="br.com.nfsconsultoria.azcontrole.domain.Fornecedor"/>
     <mapping class="br.com.nfsconsultoria.azcontrole.domain.Vendedor"/>
-    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Sapatilha"/>
+    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Produto"/>
+    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Venda"/>
   </session-factory>
 </hibernate-configuration>
   </session-factory>

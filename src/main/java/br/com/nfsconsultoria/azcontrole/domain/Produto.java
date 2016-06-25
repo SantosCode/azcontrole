@@ -4,10 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -16,10 +14,16 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity
-public class Sapatilha extends GenericDomain implements Serializable {
+public class Produto extends GenericDomain implements Serializable {
+    
+    @Column(nullable = false)
+    private String lote;
 
-    @Column(nullable = false, unique = true, length = 45)
+    @Column(nullable = false, length = 45)
     private String ref;
+    
+    @Column(length = 45)
+    private String tipo;
     
     @Column(nullable = false, length = 2)
     private Integer numero;
@@ -30,17 +34,10 @@ public class Sapatilha extends GenericDomain implements Serializable {
     @Column(nullable = false, length = 8)
     private Double valor_compra;
     
-    @Column(length = 8)
-    private Double valor_venda;
-    
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date data_compra;
-    
-    @Temporal(TemporalType.DATE)
-    @Column
-    private Date data_venda;
-    
+   
     @Column
     private Boolean troca;
     
@@ -50,16 +47,29 @@ public class Sapatilha extends GenericDomain implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Fornecedor fornecedor;
-    
-    @OneToOne(fetch = FetchType.LAZY, optional = true)
-    private Vendedor vendedor;
 
+    public String getLote() {
+        return lote;
+    }
+
+    public void setLote(String lote) {
+        this.lote = lote;
+    }
+    
     public String getRef() {
         return ref;
     }
 
     public void setRef(String ref) {
         this.ref = ref;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public Integer getNumero() {
@@ -86,28 +96,12 @@ public class Sapatilha extends GenericDomain implements Serializable {
         this.valor_compra = valor_compra;
     }
 
-    public Double getValor_venda() {
-        return valor_venda;
-    }
-
-    public void setValor_venda(Double valor_venda) {
-        this.valor_venda = valor_venda;
-    }
-
     public Date getData_compra() {
         return data_compra;
     }
 
     public void setData_compra(Date data_compra) {
         this.data_compra = data_compra;
-    }
-
-    public Date getData_venda() {
-        return data_venda;
-    }
-
-    public void setData_venda(Date data_venda) {
-        this.data_venda = data_venda;
     }
 
     public Boolean getTroca() {
@@ -133,13 +127,4 @@ public class Sapatilha extends GenericDomain implements Serializable {
     public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
     }
-    
-    public Vendedor getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
-    }
-
 }
