@@ -50,7 +50,6 @@ public class FornecedorBean {
             erro.printStackTrace();
         }
     }
-
     public void novo() {
         this.fornecedor = new Fornecedor();
     }
