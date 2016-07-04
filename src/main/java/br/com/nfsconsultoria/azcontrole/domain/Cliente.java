@@ -1,13 +1,8 @@
 package br.com.nfsconsultoria.azcontrole.domain;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  * @author luissantos
@@ -38,13 +33,6 @@ public class Cliente extends GenericDomain implements Serializable {
     
     @Column(length = 15)
     private String mes_niver;
-    
-    @OneToMany(mappedBy = "cliente", targetEntity = Produto.class, 
-            fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Produto> produtos;
-    
-    @OneToOne
-    private Vendedor vendedor;
 
     public String getNome() {
         return nome;
@@ -109,21 +97,4 @@ public class Cliente extends GenericDomain implements Serializable {
     public void setMes_niver(String mes_niver) {
         this.mes_niver = mes_niver;
     }
-
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
-    public Vendedor getVendedor() {
-        return vendedor;
-    }
-
-    public void setVendedor(Vendedor vendedor) {
-        this.vendedor = vendedor;
-    }
-
 }

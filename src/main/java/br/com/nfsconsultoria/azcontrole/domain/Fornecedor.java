@@ -25,9 +25,6 @@ public class Fornecedor extends GenericDomain implements Serializable {
 
     @Column(length = 80)
     private String cidade;
-
-    @Column(length = 9)
-    private String cep;
     
     public String getNome() {
         return nome;
@@ -68,13 +65,4 @@ public class Fornecedor extends GenericDomain implements Serializable {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
 }
