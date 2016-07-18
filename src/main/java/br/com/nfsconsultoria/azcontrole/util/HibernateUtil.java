@@ -10,10 +10,10 @@ import org.hibernate.service.ServiceRegistry;
  * @author luissantos
  */
 public class HibernateUtil {
-    private static SessionFactory fabricaDeSessoes = criarFabricaDeSesoes();
+    private static final SessionFactory SESSION_FACTORY = criarFabricaDeSesoes();
 
     public static SessionFactory getFabricaDeSessoes() {
-        return fabricaDeSessoes;
+        return SESSION_FACTORY;
     }
 
     private static SessionFactory criarFabricaDeSesoes() {
@@ -25,7 +25,6 @@ public class HibernateUtil {
             return fabrica;
         } catch (Throwable ex) {
             System.err.println("A fabrica de sessões não pode ser criada. " + ex);
-            ex.printStackTrace();
             throw new ExceptionInInitializerError(ex);
         }
     }

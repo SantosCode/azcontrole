@@ -19,7 +19,7 @@
         <!-- Mostra as SQLs geradas -->
         <property name="show_sql">true</property>
         <!-- Mapeamento de Entidades -->
-        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Cliente" file="" jar="" package="" resource=""/>
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Cliente"/>
         <mapping class="br.com.nfsconsultoria.azcontrole.domain.Fornecedor"/>
         <mapping class="br.com.nfsconsultoria.azcontrole.domain.Lote"/>
         <mapping class="br.com.nfsconsultoria.azcontrole.domain.Produto"/>
