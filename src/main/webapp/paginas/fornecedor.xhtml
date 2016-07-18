@@ -28,13 +28,13 @@
                         <h:commandLink>
                             <p:graphicImage name="/images/excel.png" width="24"/>
                             <p:dataExporter type="xls" target="tabela" fileName="datas"
-                                            postProcessor="#{fornecedor.postProcessXLS}"/>
+                                            postProcessor="#{fornecedorBean.postProcessXLS}"/>
                         </h:commandLink>
 
                         <h:commandLink>
                             <p:graphicImage name="/images/pdf.png" width="24"/>
                             <p:dataExporter type="pdf" target="tabela" fileName="clinicas"
-                                            preProcessor="#{fornecedor.preProcessPDF}"/>
+                                            preProcessor="#{fornecedorBean.preProcessPDF}"/>
                         </h:commandLink>
                     </f:facet>
 
@@ -144,10 +144,10 @@
                   appendTo="@(body)" showEffect="clip" responsive="true" dynamic="true"
                   fitViewport="true" positionType="absolute">
             <h:form id="formVisu">
-                <h:panelGrid id="painel" columns="2">
+                <h:panelGrid id="Vpainel" columns="2">
                     <p:outputLabel for="nome" value="Fornecedor:"
                                    style="font-weight: bold"/>
-                    <p:outputLabel id="nome"
+                    <p:outputLabel id="Vnome"
                                    value="#{fornecedorBean.fornecedor.nome}"/>
 
                     <p:outputLabel value="Telefone:" style="font-weight: bold"/>

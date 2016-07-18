@@ -50,5 +50,8 @@
     <orderEntry type="library" name="Maven: org.omnifaces:omnifaces:1.13" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b01" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:4.3.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.lowagie:itext:2.1.7.js3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi:3.14" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
   </component>
 </module>

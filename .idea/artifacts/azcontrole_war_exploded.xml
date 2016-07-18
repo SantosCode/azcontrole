@@ -25,6 +25,9 @@
           <element id="library" level="project" name="Maven: org.omnifaces:omnifaces:1.13" />
           <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.0-b01" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.3.1.Final" />
+          <element id="library" level="project" name="Maven: com.lowagie:itext:2.1.7.js3" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.14" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
       </element>
       <element id="directory" name="META-INF">
