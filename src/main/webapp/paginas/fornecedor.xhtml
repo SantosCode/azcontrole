@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -22,7 +22,7 @@
                                          oncomplete="PF('dialogo').show();"
                                          update=":mensagem :formCadastro:painel">
                             <f:actionListener
-                                    type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
+                                type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
                         </p:commandButton>
 
                         <h:commandLink>
@@ -77,7 +77,7 @@
                                          oncomplete="PF('dialogo').show();">
                             <f:attribute name="vendedorSelecionado" value="#{fornecedor}"/>
                             <f:actionListener
-                                    type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
+                                type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
                         </p:commandButton>
                         <p:confirmDialog global="true">
                             <p:commandButton value="Sim" type="button"
@@ -92,7 +92,7 @@
                                          oncomplete="PF('dlgVisu').show();">
                             <f:attribute name="fornecedorSelecionado" value="#{fornecedor}"/>
                             <f:actionListener
-                                    type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
+                                type="org.omnifaces.eventlistener.ResetInputAjaxActionListener"/>
                         </p:commandButton>
                     </p:column>
                 </p:dataTable>
@@ -129,11 +129,6 @@
                     <p:inputText id="cidade"
                                  value="#{fornecedorBean.fornecedor.cidade}"
                                  required="true" requiredMessage="O campo ciadade é obrigatório"/>
-
-                    <p:outputLabel for="cep" value="CEP:"/>
-                    <p:inputText id="cep"
-                                 value="#{fornecedorBean.fornecedor.cep}"
-                                 required="true" requiredMessage="O campo cep é obrigatório"/>
 
                     <p:commandButton value="Salvar"
                                      actionListener="#{fornecedorBean.salvar}"
