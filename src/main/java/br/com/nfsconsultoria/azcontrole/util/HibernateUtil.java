@@ -25,6 +25,7 @@ public class HibernateUtil {
             return fabrica;
         } catch (Throwable ex) {
             System.err.println("A fabrica de sessões não pode ser criada. " + ex);
+            ex.printStackTrace();
             throw new ExceptionInInitializerError(ex);
         }
     }

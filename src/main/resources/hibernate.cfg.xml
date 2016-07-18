@@ -2,31 +2,28 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://192.168.200.6:3306/azcontrole</property>
-    <property name="hibernate.connection.username">aptech</property>
-    <property name="hibernate.connection.password">Aptech2016</property>
-    <!-- Pool de Conexões -->
-    <property name="connection.pool_size">5</property>
-    <!-- Sessão -->
-    <property name= "hibernate.current_sesion_context_class">org.hibernate.context.ThreadLocalSesionContext</property>     
-    <!-- SQL dialect -->
-    <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-    <!-- Gerenciamento do Contexto das Sessões -->
-    <property name="current_session_context_class">thread</property>
-    <!-- Cache de Segundo Nível -->
-    <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
-    <!-- Mostra as SQLs Geradas -->
-    <property name="show_sql">true</property>
-    <!-- Cria as tabelas do banco de dados -->
-    <property name="hbm2ddl.auto">create</property>
-    <!-- Mapeamento das entidades -->
-    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Cliente"/>
-    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Fornecedor"/>
-    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Vendedor"/>
-    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Produto"/>
-    <mapping class="br.com.nfsconsultoria.azcontrole.domain.Venda"/>
-  </session-factory>
-</hibernate-configuration>
-  </session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.200.6:3306/azcontrole</property>
+        <property name="hibernate.connection.username">aptech</property>
+        <property name="hibernate.connection.password">Aptech2016</property>Ï
+        <!-- DB schema will be updated if needed -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <!-- Sessão -->
+        <property name="hibernate.current_session_context_class">
+            org.hibernate.context.internal.ThreadLocalSessionContext
+        </property>
+        <!-- SQL Dialeto -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+        <!-- Cache de segundo Nivel -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+        <!-- Mostra as SQLs geradas -->
+        <property name="show_sql">true</property>
+        <!-- Mapeamento de Entidades -->
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Cliente" file="" jar="" package="" resource=""/>
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Fornecedor"/>
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Lote"/>
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Produto"/>
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Venda"/>
+        <mapping class="br.com.nfsconsultoria.azcontrole.domain.Vendedor"/>       
+    </session-factory>
 </hibernate-configuration>

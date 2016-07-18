@@ -24,11 +24,11 @@
     <param-value>start</param-value>
   </context-param>
 
-  <filter-mapping>
+  <!--<filter-mapping>
       <filter-name>LoginFilter</filter-name>
       <url-pattern>/paginas/*</url-pattern>
   </filter-mapping> 
- 
+ -->
   <listener>
     <listener-class>br.com.nfsconsultoria.azcontrole.util.HibernateContexto</listener-class>
   </listener>
