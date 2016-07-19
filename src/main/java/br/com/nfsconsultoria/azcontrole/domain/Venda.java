@@ -5,7 +5,9 @@
  */
 package br.com.nfsconsultoria.azcontrole.domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,15 +23,15 @@ import javax.persistence.TemporalType;
  * @author luis
  */
 @Entity
-public class Venda extends GenericDomain {
+public class Venda extends GenericDomain implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date data_venda;
 
-    @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY,
-            targetEntity = Produto.class, cascade = CascadeType.ALL)
-    private Produto produto;
+    @OneToMany
+    @JoinColumn(nullable = false)
+    private List<Produto> produtos;
 
     @Column(nullable = false)
     private Double valor;
@@ -46,12 +48,12 @@ public class Venda extends GenericDomain {
         this.data_venda = data_venda;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public Double getValor() {

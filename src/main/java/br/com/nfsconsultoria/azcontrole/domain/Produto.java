@@ -9,10 +9,10 @@ import javax.persistence.Entity;
  *
  */
 @Entity
-public class Produto extends GenericDomain {
+public class Produto extends GenericDomain implements Serializable {
     
     @Column(nullable = false, length = 45)
-    private String ref;
+    private String refe;
     
     @Column(length = 45)
     private String tipo;
@@ -29,12 +29,12 @@ public class Produto extends GenericDomain {
     @Column(columnDefinition = "LONGBLOB")
     private Byte[] foto;
 
-    public String getRef() {
-        return ref;
+    public String getRefe() {
+        return refe;
     }
 
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void setRefe(String refe) {
+        this.refe = refe;
     }
 
     public String getTipo() {

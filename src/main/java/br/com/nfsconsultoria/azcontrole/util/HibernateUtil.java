@@ -4,11 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.jdbc.ReturningWork;
 import org.hibernate.service.ServiceRegistry;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -18,7 +16,7 @@ import java.sql.SQLException;
  */
 public class HibernateUtil {
 
-    private static SessionFactory fabricaDeSessoes = criarFabricaDeSessoes();
+    private static final SessionFactory fabricaDeSessoes = criarFabricaDeSessoes();
 
     public static SessionFactory getFabricaDeSessoes() {
         return fabricaDeSessoes;
@@ -29,12 +27,7 @@ public class HibernateUtil {
     public static Connection getConexao() {
         Session sessao = fabricaDeSessoes.openSession();
 
-        Connection conexao = sessao.doReturningWork(new ReturningWork<Connection>() {
-            @Override
-            public Connection execute(Connection conn) throws SQLException {
-                return conn;
-            }
-        });
+        Connection conexao = sessao.doReturningWork((Connection conn) -> conn);
 
         return conexao;
     }
