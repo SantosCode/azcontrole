@@ -33,7 +33,7 @@
 
                         <h:commandLink>
                             <p:graphicImage name="/images/pdf.png" width="24"/>
-                            <p:dataExporter type="pdf" target="tabela" fileName="clinicas"
+                            <p:dataExporter type="pdf" target="tabela" fileName="fornecedores"
                                             preProcessor="#{fornecedorBean.preProcessPDF}"/>
                         </h:commandLink>
                     </f:facet>
@@ -154,7 +154,6 @@
                     <p:outputPanel id="telefone" style="width: 400px">
                         <p:dataList value="#{fornecedorBean.fornecedor.tel}"
                                     var="dentistasLista" emptyMessage="Nenhum dentista selecionado">
-                            Dr(a) #{dentistasLista.nome} CRO #{dentistasLista.cro}
                         </p:dataList>
                     </p:outputPanel>
                 </h:panelGrid>

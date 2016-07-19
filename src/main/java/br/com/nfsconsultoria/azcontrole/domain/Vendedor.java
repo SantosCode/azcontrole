@@ -8,6 +8,7 @@ import javax.persistence.Entity;
  * @author luissantos
  *
  */
+@SuppressWarnings("serial")
 @Entity
 public class Vendedor extends GenericDomain implements Serializable {
 

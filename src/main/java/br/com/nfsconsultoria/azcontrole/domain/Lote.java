@@ -5,6 +5,7 @@
  */
 package br.com.nfsconsultoria.azcontrole.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +18,9 @@ import javax.persistence.TemporalType;
  *
  * @author luissantos
  */
+@SuppressWarnings("serial")
 @Entity
-public class Lote extends GenericDomain{
+public class Lote extends GenericDomain implements Serializable{
     
     @Column(nullable = false, length = 45)
     private String numero;

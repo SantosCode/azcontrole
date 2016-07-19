@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 /**
  * @author luissantos
  */
+@SuppressWarnings("serial")
 @Entity
 public class Cliente extends GenericDomain implements Serializable {
 

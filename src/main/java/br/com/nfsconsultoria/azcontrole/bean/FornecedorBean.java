@@ -112,7 +112,7 @@ public class FornecedorBean {
     
     public void preProcessPDF(Object document) throws IOException, BadElementException, DocumentException {
         Document pdf = (Document) document;
-        Rectangle size = new Rectangle(1900, 600);
+        //Rectangle size = new Rectangle(1900, 600);
         pdf.addAuthor("Luis Carlos Santos");
         pdf.addTitle("Dentistas Cadastrados");
         pdf.addCreator("NFS Consultoria");
