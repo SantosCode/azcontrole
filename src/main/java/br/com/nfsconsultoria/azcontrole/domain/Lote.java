@@ -10,7 +10,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,7 +29,7 @@ public class Lote extends GenericDomain implements Serializable{
     @Column(nullable = false)
     private Date data_compra;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(nullable = false)
     private Fornecedor fornecedor;
 

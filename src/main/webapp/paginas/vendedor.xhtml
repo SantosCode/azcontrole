@@ -23,18 +23,6 @@
                             <f:actionListener
                                 type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
                         </p:commandButton>
-
-                        <h:commandLink>
-                            <p:graphicImage name="/images/excel.png" width="24" />
-                            <p:dataExporter type="xls" target="tabela" fileName="datas"
-                                            postProcessor="#{clinicaBean.postProcessXLS}" />
-                        </h:commandLink>
-
-                        <h:commandLink>
-                            <p:graphicImage name="/images/pdf.png" width="24" />
-                            <p:dataExporter type="pdf" target="tabela" fileName="clinicas"
-                                            preProcessor="#{clinicaBean.preProcessPDF}" />
-                        </h:commandLink>
                     </f:facet>
 
                     <p:column headerText="Vendedor"
@@ -142,14 +130,11 @@
                     <p:outputLabel for="nome" value="Clinica:"
                                    style="font-weight: bold" />
                     <p:outputLabel id="nome"
-                                   value="#{clinicaBean.clinica.nome}" />
+                                   value="#{vendedor.nome}" />
 
-                    <p:outputLabel value="Dentistas:" style="font-weight: bold"/>
+                    <p:outputLabel value="Telefoe:" style="font-weight: bold"/>
                     <p:outputPanel id="lista" style="width: 400px">
-                        <p:dataList value="#{clinicaBean.clinica.dentista}"
-                                    var="dentistasLista" emptyMessage="Nenhum dentista selecionado">
-                            Dr(a) #{dentistasLista.nome} CRO #{dentistasLista.cro} 
-                        </p:dataList>
+                        <p:outputLabel value="#{vendedor.cel}"/>
                     </p:outputPanel>
                 </h:panelGrid>
 

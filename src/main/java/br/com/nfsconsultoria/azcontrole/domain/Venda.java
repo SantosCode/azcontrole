@@ -6,13 +6,14 @@
 package br.com.nfsconsultoria.azcontrole.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -35,10 +36,10 @@ public class Venda extends GenericDomain implements Serializable {
     @Column(nullable = false)
     private Double valor;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(nullable = false)
     private Cliente cliente;
-
+    
     public Date getData_venda() {
         return data_venda;
     }
@@ -47,14 +48,10 @@ public class Venda extends GenericDomain implements Serializable {
         this.data_venda = data_venda;
     }
 
-    public List<Produto> getProdutos() {
+    public Collection<Produto> getProdutos() {
         return produtos;
     }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
+    
     public Double getValor() {
         return valor;
     }

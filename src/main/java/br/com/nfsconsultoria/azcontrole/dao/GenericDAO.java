@@ -1,7 +1,6 @@
 package br.com.nfsconsultoria.azcontrole.dao;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
@@ -10,6 +9,8 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.nfsconsultoria.azcontrole.util.HibernateUtil;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * 

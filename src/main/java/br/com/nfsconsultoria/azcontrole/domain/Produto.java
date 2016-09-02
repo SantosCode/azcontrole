@@ -3,6 +3,8 @@ package br.com.nfsconsultoria.azcontrole.domain;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @author luissantos
@@ -29,6 +31,10 @@ public class Produto extends GenericDomain implements Serializable {
     
     @Column(columnDefinition = "LONGBLOB")
     private Byte[] foto;
+    
+    @ManyToOne
+    @JoinColumn
+    private Lote lote;
 
     public String getRefe() {
         return refe;
@@ -76,5 +82,13 @@ public class Produto extends GenericDomain implements Serializable {
 
     public void setFoto(Byte[] foto) {
         this.foto = foto;
+    }
+
+    public Lote getLote() {
+        return lote;
+    }
+
+    public void setLote(Lote lote) {
+        this.lote = lote;
     }
 }
